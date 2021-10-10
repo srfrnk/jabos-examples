@@ -1,4 +1,4 @@
-function(commit) {
+function(latestCommitId) {
   apiVersion: 'apps/v1',
   kind: 'Deployment',
   metadata: {
@@ -24,7 +24,7 @@ function(commit) {
         containers: [
           {
             name: 'test-deployment',
-            image: 'registry.kube-system:80/example-image:' + commit,
+            image: 'registry.kube-system:80/example-image:' + latestCommitId,
           },
         ],
       },
