@@ -1,18 +1,18 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: simple-example-build-env
+  name: example-build-env
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: simple-example-runtime-env
+  name: example-runtime-env
 ---
 apiVersion: jabos.io/v1
 kind: GitRepository
 metadata:
   name: first-repo
-  namespace: simple-example-build-env
+  namespace: example-build-env
 spec:
   url: https://github.com/srfrnk/jabos-examples.git
   branch: main
@@ -21,7 +21,7 @@ apiVersion: jabos.io/v1
 kind: DockerImage
 metadata:
   name: first-image
-  namespace: simple-example-build-env
+  namespace: example-build-env
 spec:
   gitRepository: first-repo
   contextPath: simple-runtime/images
@@ -31,9 +31,9 @@ apiVersion: jabos.io/v1
 kind: JsonnetManifest
 metadata:
   name: simple-jsonnet-manifest
-  namespace: simple-example-build-env
+  namespace: example-build-env
 spec:
   gitRepository: first-repo
   path: simple-runtime/manifests
-  targetNamespace: simple-example-runtime-env
+  targetNamespace: example-runtime-env
   commitTLAKey: latestCommitId
