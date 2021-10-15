@@ -14,7 +14,7 @@ metadata:
   namespace: example-env
 spec:
   gitRepository: first-repo
-  contextPath: simple-build/images
+  contextPath: simple-runtime/images
   imageName: registry.kube-system:80/example-image
 ---
 apiVersion: jabos.io/v1
