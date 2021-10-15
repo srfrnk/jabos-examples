@@ -24,6 +24,6 @@ metadata:
   namespace: example-env
 spec:
   gitRepository: first-repo
-  path: simple-build/manifests
+  path: simple-runtime/manifests
   targetNamespace: example-env
   commitTLAKey: latestCommitId
