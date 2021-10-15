@@ -14,7 +14,7 @@ metadata:
   namespace: example-build-env
 spec:
   gitRepository: first-repo
-  contextPath: simple-runtime/images
+  contextPath: simple-build/images
   imageName: registry.kube-system:80/example-image
 ---
 apiVersion: jabos.io/v1
@@ -24,6 +24,6 @@ metadata:
   namespace: example-build-env
 spec:
   gitRepository: first-repo
-  path: simple-runtime/manifests
-  targetNamespace: example-runtime-env
+  path: simple-build/manifests
+  targetNamespace: example-build-env
   commitTLAKey: latestCommitId
