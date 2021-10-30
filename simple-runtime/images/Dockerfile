@@ -6,7 +6,7 @@ RUN npm install
 
 COPY . /app
 
-USER 1000
+USER node
 
 ENTRYPOINT ["npx","nodemon"]
 CMD ["index.ts"]
