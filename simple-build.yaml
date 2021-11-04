@@ -51,3 +51,27 @@ spec:
   imageName: jabos/example-image-private
   dockerHub:
     secret: docker-hub
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-docker-gcr
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images
+  imageName: gcr.io/jabos-331114/example-image
+  gcp:
+    secret: gcp
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-docker-artifact-registry
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images
+  imageName: europe-west2-docker.pkg.dev/jabos-331114/jabos/example-image
+  gcp:
+    secret: gcp
