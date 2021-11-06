@@ -75,3 +75,15 @@ spec:
   imageName: europe-west2-docker.pkg.dev/jabos-331114/jabos/example-image
   gcp:
     secret: gcp
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-docker-ecr
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images
+  imageName: 524835905417.dkr.ecr.eu-west-2.amazonaws.com/example-image
+  aws:
+    secret: aws
