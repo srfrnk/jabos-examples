@@ -14,3 +14,4 @@ This repo contains the target code used by the examples for the jabos project
    1. `"aws_secret_access_key"` - contains your AWS secret access key
 1. Make sure `kubectl` is configured to connect to the correct K8s cluster. (i.e. `minikube`)
 1. Run `make set-secret`
+1. Run `kubectl apply -f ./simple-build.yaml`
