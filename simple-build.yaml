@@ -97,6 +97,6 @@ spec:
   gitRepository: first-repo
   path: simple-runtime/plain-manifests
   targetNamespace: example-env
-  replacementPrefix: "**"
-  replacementSuffix: "**"
+  replacementPrefix: "\\*\\*"
+  replacementSuffix: "\\*\\*"
   commitReplacementString: LATEST_COMMIT_ID
