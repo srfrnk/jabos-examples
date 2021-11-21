@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-deployment-non-template
+  name: test-deployment-non-template
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-deployment-non-template
+  template:
+    metadata:
+      labels:
+        app: test-deployment-non-template
+    spec:
+      containers:
+        - image: registry.kube-system:80/example-image:**LATEST_COMMIT_ID**
+          name: test-deployment-non-template

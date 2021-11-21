@@ -87,3 +87,16 @@ spec:
   imageName: 524835905417.dkr.ecr.eu-west-2.amazonaws.com/example-image
   aws:
     secret: aws
+---
+apiVersion: jabos.io/v1
+kind: PlainManifest
+metadata:
+  name: simple-plain-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/plain-manifests
+  targetNamespace: example-env
+  replacementPrefix: "**"
+  replacementSuffix: "**"
+  commitReplacementString: LATEST_COMMIT_ID
