@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-deployment-plain
+  name: test-deployment-plain
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-deployment-plain
+  template:
+    metadata:
+      labels:
+        app: test-deployment-plain
+    spec:
+      containers:
+        - image: registry.kube-system:80/example-image:{{LATEST_COMMIT_ID}}
+          name: test-deployment-plain
