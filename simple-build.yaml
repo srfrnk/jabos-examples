@@ -108,6 +108,6 @@ metadata:
   namespace: example-env
 spec:
   gitRepository: first-repo
-  path: simple-runtime/helm
+  path: simple-runtime/helm-template
   targetNamespace: example-env
   commitValueKey: LATEST_COMMIT_ID
