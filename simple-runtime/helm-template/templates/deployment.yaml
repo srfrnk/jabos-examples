@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: test-deployment-plain
-  name: test-deployment-plain
+    app: test-deployment-helm-template
+  name: test-deployment-helm-template
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-deployment-plain
+      app: test-deployment-helm-template
   template:
     metadata:
       labels:
-        app: test-deployment-plain
+        app: test-deployment-helm-template
     spec:
       containers:
         - image: registry.kube-system:80/example-image:{{ .Values.LATEST_COMMIT_ID }}
-          name: test-deployment-plain
+          name: test-deployment-helm-template

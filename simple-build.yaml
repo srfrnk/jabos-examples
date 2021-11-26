@@ -100,3 +100,14 @@ spec:
   replacementPrefix: "\\*\\*"
   replacementSuffix: "\\*\\*"
   commitReplacementString: LATEST_COMMIT_ID
+---
+apiVersion: jabos.io/v1
+kind: HelmTemplateManifest
+metadata:
+  name: simple-helm-template-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/helm
+  targetNamespace: example-env
+  commitValueKey: LATEST_COMMIT_ID
