@@ -124,3 +124,5 @@ spec:
   targetNamespace: example-env
   dockerImages:
     - first-image
+    - first-image-docker-hub-public
+    - first-image-docker-hub-private
