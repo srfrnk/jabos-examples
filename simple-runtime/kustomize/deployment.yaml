@@ -19,5 +19,3 @@ spec:
           name: test-deployment-kustomize
         - image: jabos/example-image-public:latest
           name: test-deployment-kustomize1
-        - image: jabos/example-image-private:latest
-          name: test-deployment-kustomize2
