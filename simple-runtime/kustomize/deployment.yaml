@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-deployment-kustomize
+  name: test-deployment-kustomize
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-deployment-kustomize
+  template:
+    metadata:
+      labels:
+        app: test-deployment-kustomize
+    spec:
+      containers:
+        - image: registry.kube-system:80/example-image:latest
+          name: test-deployment-kustomize
