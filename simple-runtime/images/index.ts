@@ -8,7 +8,6 @@ app.use(express.json());
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}.`);
-  console.log("this is a demo");
 });
 
 app.get('/', asyncHandler(async (request: Request, response: Response, next: NextFunction) => {
