@@ -19,3 +19,6 @@ spec:
           name: test-deployment-kustomize
         - image: jabos/example-image-public:latest
           name: test-deployment-kustomize1
+          env:
+            - name: PORT
+              value: "3001"
