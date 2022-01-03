@@ -1,4 +1,4 @@
-function(latestCommitId) {
+function(env, latestCommitId) {
   apiVersion: 'apps/v1',
   kind: 'Deployment',
   metadata: {
@@ -24,7 +24,7 @@ function(latestCommitId) {
         containers: [
           {
             name: 'test-deployment',
-            image: 'registry.kube-system:80/example-image:' + latestCommitId,
+            image: 'registry.kube-system:80/example-image-' + env + ':' + latestCommitId,
           },
         ],
       },

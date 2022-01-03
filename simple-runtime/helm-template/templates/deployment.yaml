@@ -15,5 +15,5 @@ spec:
         app: test-deployment-helm-template
     spec:
       containers:
-        - image: registry.kube-system:80/example-image:{{ .Values.LATEST_COMMIT_ID }}
+        - image: registry.kube-system:80/example-image-{{ .Values.env }}:{{ .Values.LATEST_COMMIT_ID }}
           name: test-deployment-helm-template

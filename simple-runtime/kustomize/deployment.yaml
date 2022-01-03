@@ -15,7 +15,7 @@ spec:
         app: test-deployment-kustomize
     spec:
       containers:
-        - image: registry.kube-system:80/example-image:latest
+        - image: registry.kube-system:80/example-image-**env**:latest
           name: test-deployment-kustomize
         - image: jabos/example-image-public:latest
           name: test-deployment-kustomize1
