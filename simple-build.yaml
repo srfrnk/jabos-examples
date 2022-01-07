@@ -170,3 +170,5 @@ spec:
   targetNamespace: example-env-stg
   commitTLAKey: latestCommitId
   cleanupPolicy: Delete
+  tlas:
+    env: stg
