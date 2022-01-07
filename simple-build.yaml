@@ -139,34 +139,34 @@ spec:
   replacementSuffix: "\\*\\*"
   replacements:
     env: dev
-# ---
-# apiVersion: jabos.io/v1
-# kind: GitRepository
-# metadata:
-#   name: first-repo
-#   namespace: example-env-stg
-# spec:
-#   url: https://github.com/srfrnk/jabos-examples.git
-#   branch: stg
-# ---
-# apiVersion: jabos.io/v1
-# kind: DockerImage
-# metadata:
-#   name: first-image
-#   namespace: example-env-stg
-# spec:
-#   gitRepository: first-repo
-#   contextPath: simple-runtime/images
-#   imageName: registry.kube-system:80/example-image-stg
-# ---
-# apiVersion: jabos.io/v1
-# kind: JsonnetManifest
-# metadata:
-#   name: simple-jsonnet-manifest
-#   namespace: example-env-stg
-# spec:
-#   gitRepository: first-repo
-#   path: simple-runtime/manifests
-#   targetNamespace: example-env-stg
-#   commitTLAKey: latestCommitId
-#   cleanupPolicy: Delete
+---
+apiVersion: jabos.io/v1
+kind: GitRepository
+metadata:
+  name: first-repo
+  namespace: example-env-stg
+spec:
+  url: https://github.com/srfrnk/jabos-examples.git
+  branch: stg
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image
+  namespace: example-env-stg
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images
+  imageName: registry.kube-system:80/example-image-stg
+---
+apiVersion: jabos.io/v1
+kind: JsonnetManifest
+metadata:
+  name: simple-jsonnet-manifest
+  namespace: example-env-stg
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/manifests
+  targetNamespace: example-env-stg
+  commitTLAKey: latestCommitId
+  cleanupPolicy: Delete
