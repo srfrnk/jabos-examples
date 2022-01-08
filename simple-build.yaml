@@ -197,3 +197,68 @@ spec:
   cleanupPolicy: Delete
   tlas:
     env: dev
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-docker-hub-public
+  namespace: example-env-stg
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images
+  imageName: jabos/example-image-public
+  dockerHub:
+    secret: docker-hub
+  build: false
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-docker-hub-private
+  namespace: example-env-stg
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images
+  imageName: jabos/example-image-private
+  dockerHub:
+    secret: docker-hub
+  build: false
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-docker-gcr
+  namespace: example-env-stg
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images
+  imageName: gcr.io/jabos-331114/example-image
+  gcp:
+    secret: gcp
+  build: false
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-docker-artifact-registry
+  namespace: example-env-stg
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images
+  imageName: europe-west2-docker.pkg.dev/jabos-331114/jabos/example-image
+  gcp:
+    secret: gcp
+  build: false
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-docker-ecr
+  namespace: example-env-stg
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images
+  imageName: 524835905417.dkr.ecr.eu-west-2.amazonaws.com/example-image
+  aws:
+    secret: aws
+  build: false
