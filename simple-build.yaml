@@ -181,8 +181,8 @@ metadata:
 spec:
   gitRepository: first-repo
   contextPath: simple-runtime/images
-  imageName: registry.kube-system:80/example-image-dev-2
-  # build: false
+  imageName: registry.kube-system:80/example-image-dev
+  build: false
 ---
 apiVersion: jabos.io/v1
 kind: JsonnetManifest
@@ -196,4 +196,4 @@ spec:
   commitTLAKey: latestCommitId
   cleanupPolicy: Delete
   tlas:
-    env: dev-2
+    env: dev
