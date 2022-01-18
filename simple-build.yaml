@@ -143,7 +143,7 @@ spec:
 apiVersion: jabos.io/v1
 kind: GitRepository
 metadata:
-  name: first-repo
+  name: first-repo-1
   namespace: example-env-stg
 spec:
   url: https://github.com/srfrnk/jabos-examples.git
@@ -152,20 +152,20 @@ spec:
 apiVersion: jabos.io/v1
 kind: DockerImage
 metadata:
-  name: first-image
+  name: first-image-1
   namespace: example-env-stg
 spec:
-  gitRepository: first-repo
+  gitRepository: first-repo-1
   contextPath: simple-runtime/images
   imageName: registry.kube-system:80/example-image-stg
 ---
 apiVersion: jabos.io/v1
 kind: JsonnetManifest
 metadata:
-  name: simple-jsonnet-manifest
+  name: simple-jsonnet-manifest-1
   namespace: example-env-stg
 spec:
-  gitRepository: first-repo
+  gitRepository: first-repo-1
   path: simple-runtime/manifests
   targetNamespace: example-env-stg
   commitTLAKey: latestCommitId
@@ -179,7 +179,7 @@ metadata:
   name: first-image-reuse-dev
   namespace: example-env-stg
 spec:
-  gitRepository: first-repo
+  gitRepository: first-repo-1
   contextPath: simple-runtime/images
   imageName: registry.kube-system:80/example-image-dev
   build: false
@@ -190,7 +190,7 @@ metadata:
   name: simple-jsonnet-manifest-reuse-dev
   namespace: example-env-stg
 spec:
-  gitRepository: first-repo
+  gitRepository: first-repo-1
   path: simple-runtime/manifests
   targetNamespace: example-env-stg
   commitTLAKey: latestCommitId
@@ -201,10 +201,10 @@ spec:
 apiVersion: jabos.io/v1
 kind: DockerImage
 metadata:
-  name: first-image-docker-hub-public
+  name: first-image-docker-hub-public-reuse-dev
   namespace: example-env-stg
 spec:
-  gitRepository: first-repo
+  gitRepository: first-repo-1
   contextPath: simple-runtime/images
   imageName: jabos/example-image-public
   dockerHub:
@@ -214,10 +214,10 @@ spec:
 apiVersion: jabos.io/v1
 kind: DockerImage
 metadata:
-  name: first-image-docker-hub-private
+  name: first-image-docker-hub-private-reuse-dev
   namespace: example-env-stg
 spec:
-  gitRepository: first-repo
+  gitRepository: first-repo-1
   contextPath: simple-runtime/images
   imageName: jabos/example-image-private
   dockerHub:
@@ -227,10 +227,10 @@ spec:
 apiVersion: jabos.io/v1
 kind: DockerImage
 metadata:
-  name: first-image-docker-gcr
+  name: first-image-docker-gcr-reuse-dev
   namespace: example-env-stg
 spec:
-  gitRepository: first-repo
+  gitRepository: first-repo-1
   contextPath: simple-runtime/images
   imageName: gcr.io/jabos-331114/example-image
   gcp:
@@ -240,10 +240,10 @@ spec:
 apiVersion: jabos.io/v1
 kind: DockerImage
 metadata:
-  name: first-image-docker-artifact-registry
+  name: first-image-docker-artifact-registry-reuse-dev
   namespace: example-env-stg
 spec:
-  gitRepository: first-repo
+  gitRepository: first-repo-1
   contextPath: simple-runtime/images
   imageName: europe-west2-docker.pkg.dev/jabos-331114/jabos/example-image
   gcp:
@@ -253,10 +253,10 @@ spec:
 apiVersion: jabos.io/v1
 kind: DockerImage
 metadata:
-  name: first-image-docker-ecr
+  name: first-image-docker-ecr-reuse-dev
   namespace: example-env-stg
 spec:
-  gitRepository: first-repo
+  gitRepository: first-repo-1
   contextPath: simple-runtime/images
   imageName: 524835905417.dkr.ecr.eu-west-2.amazonaws.com/example-image
   aws:
