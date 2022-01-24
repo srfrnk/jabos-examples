@@ -1,7 +1,7 @@
 apiVersion: jabos.io/v1
 kind: GitRepository
 metadata:
-  name: first-repo-failed
+  name: failed-first-repo
   namespace: example-env
 spec:
   url: https://github.com/srfrnk/jabos-examples.git
@@ -10,7 +10,7 @@ spec:
 apiVersion: jabos.io/v1
 kind: DockerImage
 metadata:
-  name: first-image-failed
+  name: failed-first-image
   namespace: example-env
 spec:
   gitRepository: first-repo
@@ -20,9 +20,119 @@ spec:
 apiVersion: jabos.io/v1
 kind: DockerImage
 metadata:
-  name: first-image-reuse-failed
+  name: failed-first-image-reuse
   namespace: example-env
 spec:
   gitRepository: first-repo
   imageName: registry.kube-system:80/example-image-failed
   build: false
+---
+apiVersion: jabos.io/v1
+kind: JsonnetManifest
+metadata:
+  name: failed-build-jsonnet-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/manifests-failed-build
+  targetNamespace: example-env
+  commitTLAKey: latestCommitId
+  cleanupPolicy: Delete
+  tlas:
+    env: dev
+---
+apiVersion: jabos.io/v1
+kind: JsonnetManifest
+metadata:
+  name: failed-deploy-jsonnet-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/manifests-failed-deploy
+  targetNamespace: example-env
+  commitTLAKey: latestCommitId
+  cleanupPolicy: Delete
+  tlas:
+    env: dev
+---
+apiVersion: jabos.io/v1
+kind: PlainManifest
+metadata:
+  name: failed-deploy-plain-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/plain-manifests-failed-deploy
+  targetNamespace: example-env
+  replacementPrefix: "\\*\\*"
+  replacementSuffix: "\\*\\*"
+  commitReplacementString: LATEST_COMMIT_ID
+  cleanupPolicy: Delete
+  replacements:
+    env: dev
+---
+apiVersion: jabos.io/v1
+kind: HelmTemplateManifest
+metadata:
+  name: failed-build-helm-template-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/helm-template-failed-build
+  targetNamespace: example-env
+  commitValueKey: LATEST_COMMIT_ID
+  cleanupPolicy: Delete
+  values:
+    env: dev
+---
+apiVersion: jabos.io/v1
+kind: HelmTemplateManifest
+metadata:
+  name: failed-deploy-helm-template-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/helm-template-failed-deploy
+  targetNamespace: example-env
+  commitValueKey: LATEST_COMMIT_ID
+  cleanupPolicy: Delete
+  values:
+    env: dev
+---
+apiVersion: jabos.io/v1
+kind: KustomizeManifest
+metadata:
+  name: failed-build-kustomize-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/kustomize-failed-build
+  targetNamespace: example-env
+  dockerImages:
+    - first-image
+    - first-image-docker-hub-public
+    - first-image-docker-hub-private
+  cleanupPolicy: Delete
+  replacementPrefix: "\\*\\*"
+  replacementSuffix: "\\*\\*"
+  replacements:
+    env: dev
+---
+apiVersion: jabos.io/v1
+kind: KustomizeManifest
+metadata:
+  name: failed-deploy-kustomize-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/kustomize-failed-deploy
+  targetNamespace: example-env
+  dockerImages:
+    - first-image
+    - first-image-docker-hub-public
+    - first-image-docker-hub-private
+  cleanupPolicy: Delete
+  replacementPrefix: "\\*\\*"
+  replacementSuffix: "\\*\\*"
+  replacements:
+    env: dev

@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-deployment-helm-template
+  name: test-deployment-helm-template
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-deployment-helm-template
+  template:
+    metadata:
+      labels:
+        app: test-deployment-helm-template
+    spec:
+      containers:
+        - name: test-deployment-helm-template
