@@ -1,0 +1,28 @@
+apiVersion: jabos.io/v1
+kind: GitRepository
+metadata:
+  name: first-repo-failed
+  namespace: example-env
+spec:
+  url: https://github.com/srfrnk/jabos-examples.git
+  branch: main1
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-failed
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  contextPath: simple-runtime/images-failed
+  imageName: registry.kube-system:80/example-image-failed
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-reuse-failed
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  imageName: registry.kube-system:80/example-image-failed
+  build: false
