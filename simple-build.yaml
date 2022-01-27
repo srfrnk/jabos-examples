@@ -262,3 +262,22 @@ spec:
   aws:
     secret: aws
   build: false
+---
+apiVersion: jabos.io/v1
+kind: GitRepository
+metadata:
+  name: first-repo-promoted
+  namespace: example-env-stg
+spec:
+  url: https://github.com/srfrnk/jabos-examples.git
+  promotedCommit: 8377784bf9750f86e1ee947aba0f9a3c1dbece18
+---
+apiVersion: jabos.io/v1
+kind: DockerImage
+metadata:
+  name: first-image-promoted
+  namespace: example-env-stg
+spec:
+  gitRepository: first-repo-promoted
+  contextPath: simple-runtime/images
+  imageName: registry.kube-system:80/example-image-promoted
