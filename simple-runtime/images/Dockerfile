@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM registry.kube-system:80/node:lts-alpine
 
 WORKDIR /app
 COPY ./package*.json /app/
