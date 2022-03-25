@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Placeholder Empty 1`] = `
+Array [
+  Object {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": Object {
+      "labels": Object {
+        "app": "test-deployment-cdk8s",
+      },
+      "name": "test-deployment-cdk8s",
+    },
+    "spec": Object {
+      "replicas": 1,
+      "selector": Object {
+        "matchLabels": Object {
+          "app": "test-deployment-cdk8s",
+        },
+      },
+      "template": Object {
+        "metadata": Object {
+          "labels": Object {
+            "app": "test-deployment-cdk8s",
+          },
+        },
+        "spec": Object {
+          "containers": Array [
+            Object {
+              "image": "registry.kube-system:80/example-image-DDD:1234",
+              "name": "test-deployment-cdk8s",
+            },
+          ],
+        },
+      },
+    },
+  },
+]
+`;

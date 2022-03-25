@@ -281,3 +281,59 @@ spec:
   gitRepository: first-repo-promoted
   contextPath: simple-runtime/images
   imageName: registry.kube-system:80/example-image-promoted
+---
+apiVersion: jabos.io/v1
+kind: Cdk8sManifest
+metadata:
+  name: cdk8s-go-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/cdk82-go-manifest
+  targetNamespace: example-env
+  commitEnvKey: LATEST_COMMIT_ID
+  cleanupPolicy: Delete
+  env:
+    BUILD_ENV: dev
+---
+apiVersion: jabos.io/v1
+kind: Cdk8sManifest
+metadata:
+  name: cdk8s-java-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/cdk82-java-manifest
+  targetNamespace: example-env
+  commitEnvKey: LATEST_COMMIT_ID
+  cleanupPolicy: Delete
+  env:
+    BUILD_ENV: dev
+---
+apiVersion: jabos.io/v1
+kind: Cdk8sManifest
+metadata:
+  name: cdk8s-python-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/cdk82-python-manifest
+  targetNamespace: example-env
+  commitEnvKey: LATEST_COMMIT_ID
+  cleanupPolicy: Delete
+  env:
+    BUILD_ENV: dev
+---
+apiVersion: jabos.io/v1
+kind: Cdk8sManifest
+metadata:
+  name: cdk8s-ts-manifest
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/cdk82-ts-manifest
+  targetNamespace: example-env
+  commitEnvKey: LATEST_COMMIT_ID
+  cleanupPolicy: Delete
+  env:
+    BUILD_ENV: dev
