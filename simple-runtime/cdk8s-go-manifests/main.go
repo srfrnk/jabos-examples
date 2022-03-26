@@ -21,11 +21,11 @@ func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8
 	}
 	chart := cdk8s.NewChart(scope, jsii.String(id), &cprops)
 
-	label := map[string]*string{"app": jsii.String("test-deployment-cdk8s")}
+	label := map[string]*string{"app": jsii.String("test-deployment-cdk8s-go")}
 
 	k8s.NewKubeDeployment(chart, jsii.String("deployment"), &k8s.KubeDeploymentProps{
 		Metadata: &k8s.ObjectMeta{
-			Name:   jsii.String("test-deployment-cdk8s"),
+			Name:   jsii.String("test-deployment-cdk8s-go"),
 			Labels: &label,
 		},
 		Spec: &k8s.DeploymentSpec{
@@ -39,7 +39,7 @@ func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8
 				},
 				Spec: &k8s.PodSpec{
 					Containers: &[]*k8s.Container{{
-						Name:  jsii.String("test-deployment-cdk8s"),
+						Name:  jsii.String("test-deployment-cdk8s-go"),
 						Image: jsii.String(fmt.Sprintf("registry.kube-system:80/example-image-%s:%s", os.Getenv("BUILD_ENV"), os.Getenv("LATEST_COMMIT_ID"))),
 					}},
 				},

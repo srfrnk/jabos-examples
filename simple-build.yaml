@@ -289,7 +289,7 @@ metadata:
   namespace: example-env
 spec:
   gitRepository: first-repo
-  path: simple-runtime/cdk82-go-manifest
+  path: simple-runtime/cdk8s-go-manifests
   targetNamespace: example-env
   commitEnvKey: LATEST_COMMIT_ID
   cleanupPolicy: Delete
@@ -303,7 +303,7 @@ metadata:
   namespace: example-env
 spec:
   gitRepository: first-repo
-  path: simple-runtime/cdk82-java-manifest
+  path: simple-runtime/cdk8s-java-manifests
   targetNamespace: example-env
   commitEnvKey: LATEST_COMMIT_ID
   cleanupPolicy: Delete
@@ -317,7 +317,7 @@ metadata:
   namespace: example-env
 spec:
   gitRepository: first-repo
-  path: simple-runtime/cdk82-python-manifest
+  path: simple-runtime/cdk8s-python-manifests
   targetNamespace: example-env
   commitEnvKey: LATEST_COMMIT_ID
   cleanupPolicy: Delete
@@ -331,7 +331,7 @@ metadata:
   namespace: example-env
 spec:
   gitRepository: first-repo
-  path: simple-runtime/cdk82-ts-manifest
+  path: simple-runtime/cdk8s-ts-manifests
   targetNamespace: example-env
   commitEnvKey: LATEST_COMMIT_ID
   cleanupPolicy: Delete

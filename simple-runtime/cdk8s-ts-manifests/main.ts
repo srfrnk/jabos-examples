@@ -9,28 +9,28 @@ export class MyChart extends Chart {
     new KubeDeployment(this, 'deployment', {
       metadata: {
         labels: {
-          app: "test-deployment-cdk8s"
+          app: "test-deployment-cdk8s-ts"
         },
-        name: "test-deployment-cdk8s"
+        name: "test-deployment-cdk8s-ts"
       },
       spec: {
         replicas: 1,
         selector: {
           matchLabels: {
-            app: "test-deployment-cdk8s"
+            app: "test-deployment-cdk8s-ts"
           }
         },
         template: {
           metadata: {
             labels: {
-              app: "test-deployment-cdk8s"
+              app: "test-deployment-cdk8s-ts"
             }
           },
           spec: {
             containers: [
               {
                 image: `registry.kube-system:80/example-image-${process.env.BUILD_ENV}:${process.env.LATEST_COMMIT_ID}`,
-                name: "test-deployment-cdk8s",
+                name: "test-deployment-cdk8s-ts",
               },
             ]
           }

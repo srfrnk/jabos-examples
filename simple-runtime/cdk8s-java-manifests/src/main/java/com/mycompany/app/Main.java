@@ -28,7 +28,7 @@ public class Main extends Chart {
                 super(scope, id, options);
 
                 final Map<String, String> selector = new HashMap<>();
-                selector.put("app", "test-deployment-cdk8s");
+                selector.put("app", "test-deployment-cdk8s-java");
                 final LabelSelector labelSelector =
                                 new LabelSelector.Builder().matchLabels(selector).build();
                 final ObjectMeta objectMeta = new ObjectMeta.Builder().labels(selector).build();
@@ -37,7 +37,7 @@ public class Main extends Chart {
                                 new ContainerPort.Builder().containerPort(8080).build();
                 containerPorts.add(containerPort);
                 final List<Container> containers = new ArrayList<>();
-                final Container container = new Container.Builder().name("test-deployment-cdk8s")
+                final Container container = new Container.Builder().name("test-deployment-cdk8s-java")
                                 .image(String.format("registry.kube-system:80/example-image-%s:%s",
                                                 System.getenv("BUILD_ENV"),
                                                 System.getenv("LATEST_COMMIT_ID")))
@@ -49,7 +49,7 @@ public class Main extends Chart {
                 final DeploymentSpec deploymentSpec = new DeploymentSpec.Builder().replicas(1)
                                 .selector(labelSelector).template(podTemplateSpec).build();
                 final KubeDeploymentProps deploymentProps = new KubeDeploymentProps.Builder()
-                                .metadata(new ObjectMeta.Builder().name("test-deployment-cdk8s")
+                                .metadata(new ObjectMeta.Builder().name("test-deployment-cdk8s-java")
                                                 .build())
                                 .spec(deploymentSpec).build();
                 new KubeDeployment(this, "deployment", deploymentProps);
