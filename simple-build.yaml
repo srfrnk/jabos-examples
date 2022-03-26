@@ -337,3 +337,17 @@ spec:
   cleanupPolicy: Delete
   env:
     BUILD_ENV: dev
+---
+apiVersion: jabos.io/v1
+kind: Cdk8sManifest
+metadata:
+  name: cdk8s-ts-failed-build
+  namespace: example-env
+spec:
+  gitRepository: first-repo
+  path: simple-runtime/cdk8s-ts-failed-build
+  targetNamespace: example-env
+  commitEnvKey: LATEST_COMMIT_ID
+  cleanupPolicy: Delete
+  env:
+    BUILD_ENV: dev
